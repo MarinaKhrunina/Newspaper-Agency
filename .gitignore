@@ -2,3 +2,8 @@
 __pycache__/
 venv
 git/
+.idea
+*.sqlite3
+.pyc
+pycache
+.env
