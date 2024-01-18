@@ -1,6 +1,9 @@
+from datetime import date
+
 from django.conf import settings
 from django.contrib.auth.models import AbstractUser
 from django.db import models
+from django.db.models.functions import datetime
 from django.utils import timezone
 
 
@@ -17,7 +20,7 @@ class Topic(models.Model):
 class Newspaper(models.Model):
     title = models.CharField(max_length=255)
     content = models.TextField()
-    published_date = models.DateTimeField(default=timezone.now)
+    published_date = models.DateField(default=datetime.datetime.today)
     topic = models.ForeignKey(
         Topic, on_delete=models.CASCADE, related_name="newspapers"
     )
@@ -34,7 +37,7 @@ class Newspaper(models.Model):
 
 
 class Redactor(AbstractUser):
-    years_of_experience = models.IntegerField(null=True)
+    years_of_experience = models.IntegerField(default=0)
 
     class Meta:
         verbose_name = "redactor"
