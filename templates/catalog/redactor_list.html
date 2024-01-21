@@ -1,11 +1,15 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Redactor list</h1>
+  <h1>Redactor list
+    <a href="{% url 'catalog:redactor-create' %}" class="btn btn-primary link-to-page">
+      Create
+    </a>
+  </h1>
   {% if redactor_list %}
     <ul>
       {% for redactor in redactor_list %}
-        <li>{{ redactor.username }} ({{ redactor.first_name }} {{ redactor.last_name }})</li>
+        <li><a href="{% url 'catalog:redactor-detail' redactor.id %}">{{ redactor.username }}</a> ({{ redactor.first_name }} {{ redactor.last_name }})</li>
       {% endfor %}
     </ul>
   {% endif %}
