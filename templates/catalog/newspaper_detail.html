@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Title: {{ newspaper.title }}</h1>
+  <p><strong>Topic: </strong>{{ newspaper.topic }}</p>
+  <p><strong>Published date: </strong>{{ newspaper.published_date }}</p>
+  <div class="ml-3">
+    <h3>Redactors:</h3>
+    {% for redactor in newspaper.redactor.all %}
+      <hr>
+      <p class="text-muted">{{ redactor.id }}</p>
+      <p>{{ redactor.first_name }} {{ redactor.last_name }}</p>
+    {% empty %}
+    <p>No redactors!</p>
+    {% endfor %}
+  </div>
+{% endblock %}
