@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_filters %}
+
+{% block content %}
+
+  <h1>Create Redactor
+    <a class="btn btn-primary" style="float: right" href="{% url 'catalog:redactor-create' %}">Create</a>
+  </h1>
+
+  <form action="" method="post" novalidate>
+    {% csrf_token %}
+    {{ form|crispy }}
+    <input class="btn btn-primary" type="submit" value="Submit">
+  </form>
+
+{% endblock %}
