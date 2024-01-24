@@ -1,14 +1,33 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Topic List</h1>
+  <h1>Topic List<a class="btn btn-primary" style="float: right" href="{% url 'catalog:topic-create' %}">Create</a></h1>
 
   {% if topic_list %}
-  <ul>
-    {% for topic in topic_list %}
-      <li>{{ topic.name }}</li>
-    {% endfor %}
-  </ul>
+    <table class="table">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Update</th>
+        <th>Delete</th>
+      </tr>
+      {% for topic in topic_list %}
+        <tr>
+          <td>
+            {{ topic.id }}
+          </td>
+          <td>
+            {{ topic.name }}
+          </td>
+          <td>
+            <a style="color: blue" href="{% url 'catalog:topic-update' pk=topic.id %}">UPDATE</a>
+          </td>
+          <td>
+            <a style="color: red" href="{% url 'catalog:topic-delete' pk=topic.id %}">DELETE</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </table>
   {% else %}
     <p>There are no Topics in Newspaper Agency</p>
   {% endif %}
