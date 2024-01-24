@@ -5,6 +5,7 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
 
+from catalog.forms import RedactorCreationForm
 from catalog.models import Newspaper, Redactor, Topic
 
 
@@ -61,6 +62,8 @@ class NewspaperCreateView(LoginRequiredMixin, generic.CreateView):
     model = Newspaper
     fields = "__all__"
     success_url = reverse_lazy("catalog:newspaper-list")
+    template_name = "catalog/newspaper_form.html"
+    # form_class = NewspaperForm
 
 
 class NewspaperUpdateView(LoginRequiredMixin, generic.UpdateView):
@@ -88,8 +91,8 @@ class RedactorDetailView(LoginRequiredMixin, generic.DetailView):
 
 class RedactorCreateView(LoginRequiredMixin, generic.CreateView):
     model = Redactor
-    fields = "__all__"
     success_url = reverse_lazy("catalog:redactor-list")
+    form_class = RedactorCreationForm
 
 
 class RedactorUpdateView(LoginRequiredMixin, generic.UpdateView):
