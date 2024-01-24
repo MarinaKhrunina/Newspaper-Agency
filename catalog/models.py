@@ -4,6 +4,7 @@ from django.conf import settings
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.db.models.functions import datetime
+from django.urls import reverse
 from django.utils import timezone
 
 
@@ -32,8 +33,8 @@ class Newspaper(models.Model):
     def __str__(self):
         return f"{self.title} (topic: {self.topic.name}, published date: {self.published_date})"
 
-    # def get_absolute_url(self):
-    #     return reverse("catalog:newspaper-detail", args=[str(self.id)])
+    def get_absolute_url(self):
+        return reverse("catalog:newspaper-detail", args=[str(self.id)])
 
 
 class Redactor(AbstractUser):
@@ -46,5 +47,5 @@ class Redactor(AbstractUser):
     def __str__(self):
         return f"{self.username}: ({self.first_name} {self.last_name})"
 
-    # def get_absolute_url(self):
-    #     return reverse("catalog:redactor-detail", args=[str(self.id)])
+    def get_absolute_url(self):
+        return reverse("catalog:redactor-detail", args=[str(self.id)])
