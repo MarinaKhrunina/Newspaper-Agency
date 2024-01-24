@@ -31,8 +31,8 @@ urlpatterns = [
     path("redactors/", RedactorListView.as_view(), name="redactor-list"),
     path("redactors/<int:pk>/", RedactorDetailView.as_view(), name="redactor-detail"),
     path("redactors/create/", RedactorCreateView.as_view(), name="redactor-create"),
-    path("redactors<int:pk>/update/", RedactorUpdateView.as_view(), name="redactors-update"),
-    path("redactors/<int:pk>/delete/", RedactorDeleteView.as_view(), name="redactors-delete"),
+    path("redactors<int:pk>/update/", RedactorUpdateView.as_view(), name="redactor-update"),
+    path("redactors/<int:pk>/delete/", RedactorDeleteView.as_view(), name="redactor-delete"),
 ]
 
 
