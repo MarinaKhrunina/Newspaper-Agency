@@ -28,6 +28,26 @@ class TopicListView(LoginRequiredMixin, generic.ListView):
     context_object_name = "topic_list"
 
 
+class TopicCreateView(LoginRequiredMixin, generic.CreateView):
+    model = Topic
+    fields = "__all__"
+    success_url = reverse_lazy("catalog:topic-list")
+    template_name = "catalog/topic_form.html"
+
+
+class TopicUpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = Topic
+    fields = "__all__"
+    success_url = reverse_lazy("catalog:topic-list")
+    template_name = "catalog/topic_form.html"
+
+
+class TopicDeleteView(LoginRequiredMixin, generic.DeleteView):
+    model = Topic
+    success_url = reverse_lazy("catalog:topic-list")
+    template_name = "catalog/topic_confirm_delete.html"
+
+
 class NewspaperListView(LoginRequiredMixin, generic.ListView):
     model = Newspaper
 
@@ -40,6 +60,19 @@ class NewspaperCreateView(LoginRequiredMixin, generic.CreateView):
     model = Newspaper
     fields = "__all__"
     success_url = reverse_lazy("catalog:newspaper-list")
+
+
+class NewspaperUpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = Newspaper
+    fields = "__all__"
+    success_url = reverse_lazy("catalog:newspaper-list")
+    template_name = "catalog/newspaper_form.html"
+
+
+class NewspaperDeleteView(LoginRequiredMixin, generic.DeleteView):
+    model = Newspaper
+    success_url = reverse_lazy("catalog:newspaper-list")
+    template_name = "catalog/newspaper_confirm_delete.html"
 
 
 class RedactorListView(LoginRequiredMixin, generic.ListView):
@@ -55,4 +88,17 @@ class RedactorCreateView(LoginRequiredMixin, generic.CreateView):
     model = Redactor
     fields = "__all__"
     success_url = reverse_lazy("catalog:redactor-list")
+
+
+class RedactorUpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = Redactor
+    fields = "__all__"
+    success_url = reverse_lazy("catalog:redactor-list")
+    template_name = "catalog/redactor_form.html"
+
+
+class RedactorDeleteView(LoginRequiredMixin, generic.DeleteView):
+    model = Redactor
+    success_url = reverse_lazy("catalog:redactor-list")
+    template_name = "catalog/redactor_confirm_delete.html"
 
