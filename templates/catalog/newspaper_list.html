@@ -20,7 +20,7 @@
       <li>
         {% if newspaper.title not in newspaper_list %}
           <a href="{% url 'catalog:newspaper-detail' newspaper.id %}">{{ newspaper.id }}</a>
-          {{ newspaper.title }}
+          {{ newspaper.title }} ({{ newspaper.topic }})
         {% endif %}
       </li>
     {% endfor %}
