@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  <h1>Delete Redactor</h1>
+
+  <p>Are you sure you want to delete the redactor: {{ redactor }}?</p>
+  <p><i>All newspapers with this redactor will be also deleted!</i></p>
+  <form action="" method="post" novalidate>
+    {% csrf_token %}
+    <input type="submit" value="Yes, delete" class="btn btn-danger" />
+
+  </form>
+
+{% endblock %}
