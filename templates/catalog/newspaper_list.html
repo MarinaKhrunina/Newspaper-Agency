@@ -7,12 +7,9 @@
       Create
     </a>
   </h1>
-{% load crispy_forms_tags %}
-  <form method="get" action="" class="form-inline">
-    {{ search_form|crispy }}
-    <input class="form-control" type="text" name="text_input" placeholder="Search by title">
-    <input class="btn btn-secondary" type="submit" value="🔎">
-  </form>
+  {% if search_form %}
+    {% include "includes/search_form.html" %}
+  {% endif %}
   <br>
   {% if newspaper_list %}
     <ul>
