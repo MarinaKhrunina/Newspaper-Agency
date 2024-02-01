@@ -15,10 +15,8 @@
     <ul>
     {% for newspaper in newspaper_list %}
       <li>
-        {% if newspaper.title not in newspaper_list %}
-          <a href="{{ newspaper.get_absolute_url }}">{{ newspaper.id }}</a>
-          {{ newspaper.title }} ({{ newspaper.topic }})
-        {% endif %}
+        <a href="{{ newspaper.get_absolute_url }}">{{ newspaper.id }}</a>
+        {{ newspaper.title }} ({{ newspaper.topic }})
       </li>
     {% endfor %}
     </ul>
