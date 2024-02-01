@@ -18,13 +18,13 @@
         <th>Content</th>
         <th>Published date</th>
       </tr>
-      {% for newspaper in newspaper_list %}
+      {% for publisher in newspaper.publishers.all %}
         <tr>
           <td>
-            {{ newspaper.id }}
+            {{ publisher.id }}
           </td>
           <td>
-            {{ newspaper.publishers }}
+            {{ publisher.username }}
           </td>
           <td>
             {{ newspaper.content }}
